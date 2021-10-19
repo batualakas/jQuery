@@ -1,0 +1,61 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <p>
+        javaScript kütüphanesidir. kullanmak için cdn veya external referans olarak sayfaya dahil etmemiz gerekir.
+        $ işareti jQuery'i tanımak için bir semboldür.
+        az kod çok iş.
+    </p>
+    <button id="btnTikla" class="metin">Tıkla!</button>
+    <p class="metin"> lorem ipsum</p>
+
+    <a href="https://google.com">google'a git</a>
+    <br />
+    <label> Siyah Arka Plan Beyaz Font Text</label> <input name="txtAd" type="text" />
+    <!-- CDN EKLEMEK İÇİN -->
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"><script/>-->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <button id="btnGoster">GÖSTER!</button>
+    <button id="btnGizle">GİZLE!</button>
+    <div id="divKutu" style="width:100px;height:100px;background-color:aquamarine;display:none"></div>
+    <hr />
+    <script>
+        $(function () {
+            // document ready olduğunda.
+            $('#btnTikla').click(function () {
+                // tikla butona bastiğimizda yapılmasını istediğimiz işlemleri buraya yazıyoruz.
+                alert("butona tıklandı");
+            });
+
+            $('.metin').css("color", "#ffcc33");
+            $('p, .metin, #btnTikla,a').click(function () {
+                alert("tıklandı");
+            })
+            $('[name=txtAd]').css("background-color", "#000").css("color", "#fff");
+            $('#btnGoster').click(function () {
+                $('#divKutu').show(); // style="display:block"
+                
+
+            })
+            $('#btnGizle').click(function () {
+                $('#divKutu').hide();
+            })
+        });
+
+                    //$(document).ready(function () {// document hazır olduğunda.
+                    //})
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>METOTLAR</h1>
+    <ul>
+        <li></li>
+    </ul>
+    <input type="text" id="txtAd" />
+    <input type="text" id="txtSoyad" />
+    <button id="btnKaydet">Kaydet</button>
+    <hr />
+    <p id="pMetin">Batu</p>
+    <button id="btnDegistir">Yazını değiştir</button>
+
+    <hr />
+    <input type="button" id="btnSil" value="Elementi Sil" />
+    <input type="button" id="btnEkle" value="Elementi Ekle" />
+    <div id="divContent"></div>
+    <hr />
+    <input type="hidden" id="hdnOgrenciId" value="102" data-soyad="alakas" data-ad="batu" />
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#btnKaydet').click(function () {
+                // text'lerin içindeki valueleri alarak alert ile gösterelim.
+                var ad = $('#txtAd').val();
+                var soyAd = $('#txtSoyad').val();
+                alert(ad + " " + soyAd);
+            })
+            $('#btnDegistir').click(function () {
+                $('#pMetin').html("Alakaş");
+
+
+            })
+            $('#btnSil').click(function () {
+                $('#btnDegistir,#pMetin').remove();
+            })
+            $('#btnEkle').click(function () {
+                var yeniButton = "<button class='butonlar'>Yeni Buton</button>";
+                $('#divContent').append(yeniButton);
+                alert("Yeni Buton Oluşturuldu");
+
+            })
+            //$('.butonlar').click(function () {
+            //    alert("Yeni oluşturulan butona tıklandı"); bu çalışmaz çünkü dom ready olduktan sonra oluştu.
+            //})
+            $(document).on('click', '.butonlar', function () {
+                //DOM'a dinamik element eklendiğinde event bind etmek için bu yapı kullanılır.
+
+                alert("Yeni oluşturulan butona tıklandı");
+            })
+            var ad = $('#hdnOgrenciId').data("ad");
+            var soyad = $('#hdnOgrenciId').data("soyad");
+            console.log(ad + " " + soyad);
+
+        })
+
+
+
+    </script>
+</body>
+</html>
